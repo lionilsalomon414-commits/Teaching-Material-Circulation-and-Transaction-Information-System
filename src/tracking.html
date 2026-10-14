@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tracking Pengiriman - SITTA UT</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="tracking">
+  <header><nav id="navbar" aria-label="Menu utama"></nav></header>
+  <main class="container">
+    <h1>Tracking Pengiriman</h1>
+    <form id="form-track" class="inline-form" novalidate>
+      <label for="no-do">No. Delivery Order</label>
+      <input type="text" id="no-do" placeholder="contoh: 2026001">
+      <button type="submit" class="btn small">Cari</button>
+    </form>
+    <p id="track-error" class="error" role="alert"></p>
+    <section id="hasil" hidden>
+      <article class="track-head">
+        <h2 id="t-nama"></h2>
+        <p id="t-do"></p>
+        <p id="t-status" class="badge"></p>
+        <div class="progress"><div id="t-bar"></div></div>
+        <ol id="t-steps" class="steps"></ol>
+      </article>
+      <table class="table detail">
+        <tbody>
+          <tr><th>Ekspedisi</th><td id="t-ekspedisi"></td></tr>
+          <tr><th>Tanggal Kirim</th><td id="t-tanggal"></td></tr>
+          <tr><th>Jenis Paket</th><td id="t-paket"></td></tr>
+          <tr><th>Total Pembayaran</th><td id="t-total"></td></tr>
+        </tbody>
+      </table>
+      <h3>Perjalanan Paket</h3>
+      <ul id="t-timeline" class="timeline"></ul>
+    </section>
+  </main>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

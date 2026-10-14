@@ -1,0 +1,81 @@
+:root{--kuning:#f0c04a;--gelap:#2b2b2b;--merah:#e53a2a;--biru:#1f4fa3;--abu:#f4f5f7}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--abu);color:#222}
+h1,h2,h3{margin:.3em 0}
+.container{max-width:960px;margin:24px auto;padding:0 16px}
+.sub{color:#666;margin:.2em 0 1em}
+.error{color:var(--merah);min-height:1.2em;font-size:.9rem;margin:.4em 0}
+.hint{font-size:.8rem;color:#888;text-align:center}
+
+/* Login */
+.bg-login{display:grid;place-items:center;min-height:100vh;background:linear-gradient(135deg,#fff7de,#dfe9fb)}
+.login-card{background:#fff;width:min(400px,92vw);padding:32px;border-radius:14px;box-shadow:0 8px 30px #0002}
+.logo{height:56px;display:block;margin-bottom:8px}
+label{display:block;font-weight:600;margin-top:12px}
+input,select{width:100%;padding:10px;border:1px solid #ccd;border-radius:6px;margin-top:6px;font-size:1rem}
+input:focus,select:focus{outline:2px solid var(--kuning)}
+.btn{background:var(--kuning);border:0;padding:12px;border-radius:6px;font-weight:700;cursor:pointer;width:100%;margin-top:10px;font-size:1rem}
+.btn:hover{filter:brightness(.95)}
+.btn.small{width:auto;padding:10px 22px;margin:0}
+.link{background:none;border:0;color:var(--biru);cursor:pointer;padding:4px 0;font-size:.95rem;display:block;margin-left:auto}
+.link.center{margin:12px auto 0}
+
+/* Navbar */
+nav{background:var(--gelap);display:flex;flex-wrap:wrap;align-items:center}
+nav a,nav .dd>button{color:#fff;text-decoration:none;padding:14px 16px;display:block;background:none;border:0;font-size:1rem;cursor:pointer}
+nav a:hover,nav .dd:hover>button,nav .dd.open>button{background:var(--merah)}
+.dd{position:relative}
+.dd-menu{display:none;position:absolute;background:#fff;min-width:260px;box-shadow:0 8px 16px #0003;z-index:5}
+.dd-menu a{color:#222}.dd-menu a:hover{background:#eee}
+.dd:hover .dd-menu,.dd.open .dd-menu{display:block}
+.spacer{flex:1}
+
+/* Dashboard */
+.greeting{font-size:1.4rem;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:16px}
+.card{background:#fff;padding:18px;border-radius:10px;box-shadow:0 2px 8px #0001;border-top:4px solid var(--kuning)}
+.big{font-size:2rem;font-weight:700;margin:0}.warn{color:var(--merah)}
+
+/* Tables */
+.table-wrap{overflow-x:auto}
+.table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden}
+.table th,.table td{padding:10px 12px;text-align:left;border-bottom:1px solid #eee}
+.table thead th{background:var(--gelap);color:#fff}
+.table tbody tr:hover{background:#fffbe9}
+.low{color:var(--merah);font-weight:700}
+.detail th{width:200px;background:#fafafa}
+.panel{background:#fff;padding:18px;border-radius:10px;margin-top:24px}
+.grid-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;align-items:center}
+.grid-form input,.grid-form select{margin:0}
+
+/* Tracking */
+.inline-form{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.inline-form input{width:240px;margin:0}.inline-form label{margin:0}
+.track-head{background:var(--biru);color:#fff;padding:20px;border-radius:10px;margin:16px 0}
+.badge{display:inline-block;background:var(--kuning);color:#222;padding:4px 12px;border-radius:20px;font-weight:700}
+.progress{background:#ffffff40;border-radius:8px;height:12px;margin:12px 0}
+.progress div{height:100%;background:var(--kuning);border-radius:8px;transition:width .6s}
+.steps{display:flex;justify-content:space-between;list-style:none;padding:0;font-size:.85rem}
+.steps li.on{font-weight:700;color:var(--kuning)}
+.timeline{list-style:none;padding-left:18px;border-left:3px solid var(--kuning)}
+.timeline li{margin:0 0 14px 10px}.timeline small{color:#777;display:block}
+
+/* Modal */
+.modal{display:none;position:fixed;inset:0;background:#0007;z-index:20;place-items:center}
+.modal.show{display:grid}
+.modal-content{background:#fff;padding:24px;border-radius:12px;width:min(400px,92vw);position:relative;animation:pop .2s}
+.close{position:absolute;right:12px;top:6px;font-size:1.6rem;background:none;border:0;cursor:pointer}
+@keyframes pop{from{transform:scale(.9);opacity:0}}
+
+/* Kartu stok bahan ajar */
+.search{max-width:420px;margin:0 0 8px}
+.book-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.book{background:#fff;border-radius:12px;box-shadow:0 2px 10px #0001;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.book:hover{transform:translateY(-4px);box-shadow:0 8px 20px #0002}
+.cover{aspect-ratio:5/7;background:#e9e9ee;display:grid;place-items:center}
+.cover img{width:100%;height:100%;object-fit:cover}
+.cover.noimg{padding:16px;text-align:center;font-weight:700;color:#777}
+.book dl{margin:0;padding:12px 14px 16px}
+.book dt{font-size:.75rem;color:#777;margin-top:8px}
+.book dd{margin:2px 0 0;background:var(--abu);padding:6px 8px;border-radius:4px}
+.book dd.low{color:var(--merah);font-weight:700}

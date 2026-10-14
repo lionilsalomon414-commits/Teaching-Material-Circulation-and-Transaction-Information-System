@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Informasi Bahan Ajar - SITTA UT</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="stok">
+  <header><nav id="navbar" aria-label="Menu utama"></nav></header>
+  <main class="container">
+    <h1>Informasi Bahan Ajar</h1>
+    <p class="sub">Peragaan Data Bahan Ajar</p>
+    <input type="search" id="cari-stok" class="search" placeholder="Cari nama atau kode barang..." aria-label="Cari bahan ajar">
+    <p id="jumlah-stok" class="sub"></p>
+    <section id="grid-stok" class="book-grid" aria-label="Daftar bahan ajar"></section>
+
+    <section class="panel">
+      <h2>Tambah Stok Baru</h2>
+      <form id="form-stok" class="grid-form" novalidate>
+        <input type="text" id="f-lokasi" placeholder="Kode Lokasi (0TMP01)">
+        <input type="text" id="f-kode" placeholder="Kode Barang (ASIP4301)">
+        <input type="text" id="f-nama" placeholder="Nama Barang">
+        <select id="f-jenis"><option value="">Jenis Barang</option><option>BMP</option><option>NonBMP</option></select>
+        <input type="number" id="f-edisi" placeholder="Edisi" min="1">
+        <input type="number" id="f-stok" placeholder="Stok" min="0">
+        <input type="file" id="f-cover" accept="image/*" aria-label="Cover (opsional)">
+        <button type="submit" class="btn small">Tambah</button>
+      </form>
+      <p id="stok-error" class="error" role="alert"></p>
+    </section>
+  </main>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

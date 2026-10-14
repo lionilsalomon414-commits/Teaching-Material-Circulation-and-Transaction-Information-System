@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - SITTA UT</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="dashboard">
+  <header><nav id="navbar" aria-label="Menu utama"></nav></header>
+  <main class="container">
+    <h1>Dashboard Aplikasi SITTA</h1>
+    <p id="greeting" class="greeting"></p>
+    <p id="clock" class="sub"></p>
+    <section class="cards" aria-label="Ringkasan">
+      <article class="card"><h3>Total Judul</h3><p class="big" id="sum-judul">-</p></article>
+      <article class="card"><h3>Total Stok</h3><p class="big" id="sum-stok">-</p></article>
+      <article class="card"><h3>Stok Menipis (&lt;200)</h3><p class="big warn" id="sum-tipis">-</p></article>
+    </section>
+  </main>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
