@@ -1,106 +1,107 @@
-# 📚 SITTA UT — Sistem Informasi Tiras dan Transaksi Bahan Ajar
+🇮🇩 [Bahasa Indonesia](README.id.md)
 
-Aplikasi web statis untuk memantau stok bahan ajar dan melacak pengiriman paket di lingkungan Universitas Terbuka. Dibuat dengan **HTML, CSS, dan JavaScript murni** (tanpa framework dan tanpa backend) sebagai Tugas Praktik mata kuliah **Pemrograman Berbasis Web**.
+# 📚 SITTA UT — Teaching Materials Inventory & Transaction System
 
-> ⚠️ Seluruh data (pengguna, bahan ajar, dan pengiriman) adalah **data contoh** yang tersimpan di `data.js`. Proyek ini untuk pembelajaran dan tidak memakai autentikasi server yang sebenarnya.
+A static web application for monitoring teaching-material stock and tracking package deliveries at Universitas Terbuka (Indonesia's Open University). Built with **plain HTML, CSS, and JavaScript**, with no frameworks and no backend, as a course project for *Web Programming*. The user interface is in Indonesian.
 
-## ✨ Fitur
+> ⚠️ All data (users, materials, and shipments) is **sample data** stored in `data.js`. This project is for learning purposes and does not use real server-side authentication.
 
-### 🔐 Login dan Akun
-- Login dengan email dan password, lengkap dengan validasi kolom kosong dan pesan jika email atau password salah.
-- **Lupa password**: memvalidasi format email dan memeriksa apakah email terdaftar.
-- **Daftar akun**: validasi semua kolom wajib, format email, password minimal 6 karakter, dan email tidak boleh ganda. Akun baru disimpan di `localStorage`.
-- Sesi disimpan di `sessionStorage`. Halaman selain login diproteksi dan akan dialihkan ke halaman login jika belum masuk.
-- Tombol **Keluar** dengan konfirmasi.
+## ✨ Features
+
+### 🔐 Login and Accounts
+- Email and password login with validation for empty fields and an error message for wrong credentials.
+- **Forgot password**: validates the email format and checks whether the email is registered.
+- **Sign up**: requires all fields, a valid email, a password of at least 6 characters, and a unique email. New accounts are stored in `localStorage`.
+- Sessions are kept in `sessionStorage`. Every page except login is protected and redirects to the login page when no one is signed in.
+- **Logout** button with a confirmation prompt.
 
 ### 🏠 Dashboard
-- Sapaan sesuai waktu (pagi, siang, sore, malam) serta peran dan lokasi pengguna.
-- Jam dan tanggal yang diperbarui setiap detik.
-- Ringkasan: total judul, total stok, dan jumlah bahan ajar dengan stok menipis (di bawah 200).
+- Time-based greeting (morning, afternoon, evening, night) plus the user's role and location.
+- A live clock and date that update every second.
+- Summary cards: total titles, total stock, and the number of items with low stock (below 200).
 
-### 📦 Informasi Bahan Ajar
-- Daftar bahan ajar dalam bentuk kartu lengkap dengan sampul, kode lokasi, kode barang, nama, jenis, edisi, dan stok.
-- **Pencarian** langsung berdasarkan nama atau kode barang.
-- Stok di bawah 200 diberi label **(menipis)**.
-- **Tambah stok baru** dengan validasi: semua kolom wajib, edisi minimal 1, stok 0 atau lebih, dan kode barang tidak boleh ganda. Sampul bersifat opsional.
-- Jika gambar sampul gagal dimuat, ditampilkan teks pengganti.
+### 📦 Teaching Materials
+- Card grid with cover, location code, item code, name, type, edition, and stock.
+- **Live search** by name or item code.
+- Stock below 200 is flagged as **(menipis)**, meaning low.
+- **Add new stock** with validation: all fields required, edition at least 1, stock 0 or more, and no duplicate item codes. The cover image is optional.
+- If a cover image fails to load, a text placeholder is shown.
 
-### 🚚 Tracking Pengiriman
-- Pencarian berdasarkan **Nomor Delivery Order (DO)**.
-- Menampilkan nama penerima, status, ekspedisi, tanggal kirim, jenis paket, dan total pembayaran.
-- Bilah kemajuan dan tahapan status: *Diproses → Dikirim → Dalam Perjalanan → Diterima*.
-- Riwayat perjalanan paket diurutkan dari yang terbaru.
+### 🚚 Delivery Tracking
+- Search by **Delivery Order (DO) number**.
+- Shows the recipient, status, courier, shipping date, package type, and total payment.
+- Progress bar and stages: *Diproses (Processing) → Dikirim (Shipped) → Dalam Perjalanan (In Transit) → Diterima (Delivered)*.
+- Package journey history, sorted newest first.
 
-### 🧭 Navbar
-- Menu Dashboard, Informasi Bahan Ajar, Tracking Pengiriman, menu dropdown Laporan, dan Histori Transaksi.
-- Menu Laporan dan Histori Transaksi masih berupa placeholder dan menampilkan pesan bahwa halaman belum tersedia pada Tugas Praktik 1.
+### 🧭 Navigation Bar
+- Links to Dashboard, Teaching Materials, Delivery Tracking, a Reports dropdown, and Transaction History.
+- Reports and Transaction History are placeholders that show a "not available yet" message.
 
-## 🧪 Akun dan Data Contoh
+## 🧪 Demo Accounts and Data
 
-| Email | Password | Peran |
+| Email | Password | Role |
 |---|---|---|
-| `rina@ut.ac.id` | `rina123` | UPBJJ-UT (Jakarta) |
-| `agus@ut.ac.id` | `agus123` | UPBJJ-UT (Makassar) |
-| `siti@ut.ac.id` | `siti123` | Puslaba |
-| `doni@ut.ac.id` | `doni123` | Fakultas |
+| `rina@ut.ac.id` | `rina123` | Regional office (Jakarta) |
+| `agus@ut.ac.id` | `agus123` | Regional office (Makassar) |
+| `siti@ut.ac.id` | `siti123` | Central lab |
+| `doni@ut.ac.id` | `doni123` | Faculty |
 | `admin@ut.ac.id` | `admin123` | Administrator |
 
-**Nomor DO untuk uji tracking:** `2023001234` (Dalam Perjalanan, JNE) dan `2023005678` (Dikirim, Pos Indonesia).
+**DO numbers for testing tracking:** `2023001234` (In Transit, JNE) and `2023005678` (Shipped, Pos Indonesia).
 
-## 📁 Struktur Proyek
+## 📁 Project Structure
 
 ```
 .
 ├── src/
-│   ├── index.html        # Halaman login
+│   ├── index.html        # Login page
 │   ├── dashboard.html    # Dashboard
-│   ├── stok.html         # Informasi bahan ajar
-│   ├── tracking.html     # Tracking pengiriman
-│   ├── css/style.css     # Gaya tampilan
+│   ├── stok.html         # Teaching materials
+│   ├── tracking.html     # Delivery tracking
+│   ├── css/style.css     # Styles
 │   ├── js/
-│   │   ├── data.js       # Data contoh (pengguna, bahan ajar, tracking)
-│   │   └── script.js     # Logika semua halaman
-│   └── img/              # Sampul bahan ajar
-├── bin/                  # Salinan css dan js
+│   │   ├── data.js       # Sample data (users, materials, tracking)
+│   │   └── script.js     # Logic for all pages
+│   └── img/              # Material cover images
 └── README.md
 ```
 
-`script.js` dipakai bersama oleh semua halaman. Halaman dikenali lewat atribut `data-page` pada tag `<body>`, lalu fungsi inisialisasi yang sesuai dijalankan.
+`script.js` is shared by every page. Each page is identified by the `data-page` attribute on its `<body>` tag, and the matching initialization function runs.
 
-## 🚀 Cara Menjalankan
+## 🚀 Getting Started
 
-Tidak perlu instalasi atau proses build.
+No installation or build step is needed.
 
 ```bash
-# 1. Clone repositori
-git clone https://github.com/<username>/<nama-repositori>.git
-cd <nama-repositori>/src
+# 1. Clone the repository
+git clone https://github.com/<username>/<repository-name>.git
+cd <repository-name>/src
 
-# 2. Buka index.html di browser,
-#    atau gunakan ekstensi Live Server di VS Code
+# 2. Open index.html in your browser,
+#    or use the Live Server extension in VS Code
 ```
 
-Logo pada halaman login bersifat opsional. Letakkan berkas `src/assets/logo-ut.png` jika ingin menampilkannya. Jika berkas tidak ada, logo otomatis disembunyikan.
+The logo on the login page is optional. Add `src/assets/logo-ut.png` to display it; if the file is missing, the logo is hidden automatically.
 
-## 🛠️ Teknologi
+## 🛠️ Tech Stack
 
-| Teknologi | Penggunaan |
+| Technology | Usage |
 |---|---|
-| HTML5 | Struktur halaman semantik (`header`, `nav`, `main`, `section`, `article`) |
-| CSS3 | Tata letak responsif, kartu, modal, bilah kemajuan, dan timeline |
-| JavaScript (ES6) | Manipulasi DOM, validasi form, pencarian, dan routing sederhana |
-| Web Storage | `sessionStorage` untuk sesi, `localStorage` untuk akun baru |
+| HTML5 | Semantic page structure (`header`, `nav`, `main`, `section`, `article`) |
+| CSS3 | Responsive layout, cards, modals, progress bar, and timeline |
+| JavaScript (ES6) | DOM manipulation, form validation, search, and simple page routing |
+| Web Storage | `sessionStorage` for sessions, `localStorage` for new accounts |
 
-## ⚠️ Catatan dan Keterbatasan
+## ⚠️ Notes and Limitations
 
-- Password disimpan sebagai teks biasa di sisi klien. Ini hanya untuk keperluan belajar dan **tidak boleh dipakai di aplikasi sungguhan**.
-- Stok baru yang ditambahkan hanya tersimpan di memori, jadi hilang saat halaman dimuat ulang.
-- Sampul yang diunggah hanya berlaku selama halaman terbuka.
+- Passwords are stored as plain text on the client side. This is for learning only and **must not be used in a real application**.
+- Newly added stock is kept in memory only and is lost when the page reloads.
+- Uploaded cover images only last while the page stays open.
 
-## 👤 Penulis
+## 👤 Author
 
-**Lioniel Salomon Siregar** — Sistem Informasi, Universitas Terbuka
+**[Your Name]** — [Student ID] — Information Systems, Universitas Terbuka
 
-## 📄 Lisensi
+## 📄 License
 
-Proyek ini dibuat untuk keperluan pembelajaran. Silakan gunakan dan kembangkan sesuai kebutuhan.
+Created for learning purposes. Feel free to use and extend it.
